@@ -1,6 +1,15 @@
-# AirBnb Clone using React
+# Facebook Clone using React
 
-### live preview https://airbnb-clone-8b036.web.app/
+- React + React HOOKS
+- React context API -> REDUX Pattern
+- Material UI
+- Flexbox
+- Firebase's firestore realtime DB
+- Firebase Hosting
+- Firebase Google Authentication ( FUll Login )
+- React Flip Move (Animation for react)
+
+### live preview 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
