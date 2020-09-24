@@ -1,29 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-
-// import page
-import  { Home,Search } from './pages';
-// import components
-import { Header, Footer } from './components';
+import { Header, SideBar,Feed, Widget, Login} from './components';
+import { FacebookContext } from './config/contexApi';
 
 function App() {
+
+  const [[user]] = useContext(FacebookContext);
+ 
   return (
     <div className="app">
-      <Router>
-        <Header />
+        {
+        !user ? <Login /> : 
+          <>
+            <Header />
 
-        <Switch>
-          <Route path="/" exact>
-              <Home />
-          </Route>        
-          <Route path="/search">
-              <Search />
-          </Route>
-        </Switch>        
-
-        <Footer />
-      </Router>
+            <div className="app__body">
+              <SideBar />
+              <Feed />
+              <Widget />
+            </div>
+         </>
+        }
     </div>
   );
 }

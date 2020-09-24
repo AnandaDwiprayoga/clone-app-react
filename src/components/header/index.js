@@ -1,37 +1,63 @@
-import React from 'react'
-import  { Link } from 'react-router-dom';
+import React, {useContext} from 'react'
 import './style.css';
 
-// import material icons
-import { 
-    SearchIcon, 
-    ExpandMoreIcon, 
-    Avatar, 
-    LanguageIcon 
-} from "./../../material-icons";
-
-
+import { SearchIcon, IconButton, HomeIcon, FlagIcon, SubscriptionsOutlined, StorefrontOutlinedIcon, SupervisedUserCircleIcon, Avatar, AddIcon, ForumIcon, NotificationsActiveIcon, ExpandMoreIcon } from "./../../material-icons";
+import { FacebookContext } from '../../config/contexApi';
 
 function  Header() {
+
+    const [[user]] = useContext(FacebookContext);  
+    console.log(user);
+
     return (
         <header className="header">
-            <Link to="/">
+            <div className="header__left">
                 <img 
-                    className="header__icon"
-                    src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png" 
-                    alt="airbnb-logo"/>
-            </Link>
+                    src="https://cdn.freebiesupply.com/logos/large/2x/facebook-logo-2019.png" 
+                    alt=""/>
+
+                <div className="header__input">
+                    <SearchIcon />
+                    <input type="text" placeholder="Search Facebook"/>
+                </div>
+            </div>
 
             <div className="header__center">
-                <input type="text"/>
-                <SearchIcon />
+                <div className="header__option--active">
+                     <HomeIcon fontSize="large"/>
+                </div>
+                <div className="header__option">
+                     <FlagIcon fontSize="large"/>
+                </div>
+                <div className="header__option">
+                     <SubscriptionsOutlined fontSize="large"/>
+                </div>
+                <div className="header__option">
+                     <StorefrontOutlinedIcon fontSize="large"/>
+                </div>
+                <div className="header__option">
+                     <SupervisedUserCircleIcon fontSize="large"/>
+                </div>
             </div>
 
             <div className="header__right">
-                <p>Become a host</p>
-                <LanguageIcon />
-                <ExpandMoreIcon />
-                <Avatar />
+                <div className="header__info">
+                    <Avatar  src={user.photoURL}/>
+                    <h4>{user.displayName}</h4>
+                </div>
+
+                <IconButton>
+                    <AddIcon />
+                </IconButton>
+                <IconButton>
+                    <ForumIcon />
+                </IconButton>
+                <IconButton>
+                    <NotificationsActiveIcon />
+                </IconButton>
+                <IconButton>
+                    <ExpandMoreIcon />
+                </IconButton>
             </div>
         </header>
     )
