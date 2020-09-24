@@ -9,7 +9,7 @@
 - Firebase Google Authentication ( FUll Login )
 - React Flip Move (Animation for react)
 
-### live preview 
+### live preview go to https://facebook-clone-6c47b.web.app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
