@@ -1,45 +1,91 @@
-import React from 'react'
-import { AccountCircleIcon, Avatar, ChatBubbleOutlineIcon, ExpandMoreIcon, NearMeIcon, ThumbUpIcon } from '../../material-icons'
-import "./style.css"
+import React, { useEffect, useState } from 'react';
+import "./style.css";
 
-function Post({profilePic, image, starname, username, timestamp, message}) {
+// import materials icon
+import { Avatar } from "./../../material-icons";
+import { db } from '../../config/firebase';
+import firebase from "firebase";
+
+function Post({postId,user, username, imageUrl, caption}) {  
+    const [ comments, setComments ] = useState([]);
+    const [ comment, setComment ] = useState([]);
+
+    useEffect(() => {
+        let unsubscribe;
+        if(postId){
+            unsubscribe = db
+                .collection("posts")
+                .doc(postId)
+                .collection("comments") 
+                .onSnapshot(snapshot => {
+                    setComments(snapshot.docs.map(com => com.data()))
+                })
+        }
+
+        return () => {
+            unsubscribe();
+        }
+    }, [postId])
+
+    const postComment = e => {
+        e.preventDefault();
+
+        db
+          .collection("posts")
+          .doc(postId)
+          .collection("comments")
+          .add({
+              text : comment,
+              username : user.displayName,
+              timestamp : firebase.firestore.FieldValue.serverTimestamp()
+          });
+
+        setComment("");
+    }
+
+
     return (
-        <div className="post">
-            <div className="post__top">
-               <Avatar 
-                    src={profilePic}
-                    className="post__avatar" />
-                <div className="post__top-info">
-                    <h3>{username}</h3>
-                    <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
-                </div>
-            </div>
-            <div className="post__bottom">
-                <p>{message}</p>
+    <div className="post">
+        <div className="post__header">
+            <Avatar  
+                className="post__avatar"
+                alt={username}
+                src="/static/images/avatar/1.jpg"
+                />
+            <h3>{username}</h3>
+        </div>
+            <img
+                className="post__image"
+                src={imageUrl} alt={username}/>
+            <h4 className="post__text"><strong>{username}</strong> {caption}</h4> 
+
+            <div className="post__comments">
+                {comments.map(com => {
+                    console.log(com)
+                    return <p key={Math.random * 1000}>
+                        <strong>{com.username}</strong> {com.text}
+                    </p>
+                })}
             </div>
 
-            <div className="post__image">
-                <img src={image} alt=""/>
-            </div>
-
-            <div className="post__options">
-                <div className="post__option">
-                    <ThumbUpIcon />
-                    <p>Like</p>
-                </div>
-                <div className="post__option">
-                    <ChatBubbleOutlineIcon />
-                    <p>Comment</p>
-                </div>
-                <div className="post__option">
-                    <NearMeIcon />
-                    <p>Share</p>
-                </div>
-                <div className="post__option">
-                    <AccountCircleIcon />
-                    <ExpandMoreIcon />
-                </div>
-            </div>
+            {user && (
+                <form className="post__comment-box">
+                    <input  
+                        type="text"
+                        className="post__input"
+                        placeholder="Add a comment..."
+                        value={comment}
+                        onChange={e => setComment(e.target.value)}
+                        />
+                    <button 
+                        className="post__button"
+                        disabled={!comment}
+                        type="submit"
+                        onClick={postComment}
+                        >Post
+                    </button>
+                </form>
+                )}
         </div>
     )
 }

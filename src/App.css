@@ -1,8 +1,44 @@
 .app {
-    background-color: #f1f2f5;
+    background-color: #FAFAFA;
+}
+
+.app__upload-feed {
+    width: 60%;
+    margin: auto;
+    text-align: center;
 }
 
 .app__body {
     width: 100%;
     display: flex;
+}
+.app__posts {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.app__posts-right {
+    margin-left: 25px;
+}
+
+.app__header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+    object-fit: contain;
+    display: flex;
+    justify-content: space-between;
+}
+ 
+.app__sign-up {
+    display: flex;
+    flex-direction: column;
+}
+
+.app__header-img {
+    object-fit: contain;
 }

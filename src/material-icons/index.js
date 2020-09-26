@@ -1,7 +1,7 @@
 import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from "@material-ui/icons/Home";
 import FlagIcon from "@material-ui/icons/Flag";
-import { Avatar, IconButton, Button } from "@material-ui/core";
+import { Avatar, IconButton, Button, Input } from "@material-ui/core";
 import SubscriptionsOutlined from "@material-ui/icons/SubscriptionsOutlined";
 import AddIcon from "@material-ui/icons/Add";
 import ForumIcon from "@material-ui/icons/Forum";
@@ -50,5 +50,6 @@ export {
     ChatBubbleOutlineIcon,
     AccountCircleIcon,
     NearMeIcon,
-    Button
+    Button,
+    Input
 }

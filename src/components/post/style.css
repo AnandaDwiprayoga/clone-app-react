@@ -1,66 +1,54 @@
 .post {
-    width: 100%;
-    margin-top: 15px;
-    border-radius: 15px;
     background-color: white;
-    box-shadow: 0 5px 7px -7px rgba(0, 0, 0, 0.75);
-    overflow: hidden;
+    max-width: 500px;
+    border: 1px solid lightgray;
+    margin-bottom: 45px;
 }
 
-.post__image > img {
+.post__image {
     width: 100%;
+    object-fit: contain;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.post__text {
+    font-weight: normal;
+    padding: 20px;
+}
+
+.post__header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
 }
 
 .post__avatar {
     margin-right: 10px;
 }
-os
 
-.post__top-info> h3 {
-    font-size: medium;
-}
-
-.post__top-info> p {
-    font-size: small;
-    color: gray;
-}
-.post__top {
+.post__comment-box {
     display: flex;
-    position: relative;
-    align-items: center;
-    padding: 15px;
-}
-
-.post__bottom {
     margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 5px 20px;
 }
 
-.post__options {
-    padding-top: 10px;
-    border-top: 1px solid lightgray;
-    display: flex;
-    justify-content: space-evenly;
-    font-size: medium;
-    color: gray;
-    cursor: pointer;
-    padding: 15px;
-}
-
-.post__option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
+.post__input {
     flex: 1;
+    border: none;
+    padding: 10px;
+    border-top: 1px solid lightgray;
+    outline: none;
 }
 
-.post__option > p {
-    margin-left: 10px;
+.post__button {
+    border: none;
+    color: #6082a3;
+    cursor: pointer;
+    background-color: transparent;
+    border-top: 1px solid lightgray;
+    outline: none;
 }
 
-.post__option:hover {
-    background-color: #efefef;
-    border-radius: 10px;
+.post__comments {
+    padding: 8px 20px;
 }

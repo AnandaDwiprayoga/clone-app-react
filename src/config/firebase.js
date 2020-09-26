@@ -3,26 +3,24 @@ import firebase from "firebase";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyC8rkKzLU4nKcWxwfScKh61YGWwFh5tF_M",
-    authDomain: "facebook-clone-6c47b.firebaseapp.com",
-    databaseURL: "https://facebook-clone-6c47b.firebaseio.com",
-    projectId: "facebook-clone-6c47b",
-    storageBucket: "facebook-clone-6c47b.appspot.com",
-    messagingSenderId: "186153368419",
-    appId: "1:186153368419:web:0829c2ed1c6d72520d7156",
-    measurementId: "G-7L390PVYZL"
-  };
+  apiKey: "AIzaSyA8hQAnPxv7RVu4uLU-YynufzzjiR6BpDk",
+  authDomain: "instagram-clone-deaf2.firebaseapp.com",
+  databaseURL: "https://instagram-clone-deaf2.firebaseio.com",
+  projectId: "instagram-clone-deaf2",
+  storageBucket: "instagram-clone-deaf2.appspot.com",
+  messagingSenderId: "4641671574",
+  appId: "1:4641671574:web:6a38f5206086995f01f5b7",
+  measurementId: "G-EVSKK3PSD7"
+};
 
 
-  const firebaseApp = firebase.initializeApp(firebaseConfig);
-  // for realtime db
-  const db = firebaseApp.firestore();
-  // for auth
-  const auth = firebaseApp.auth();
-  // for login with google account
-  const provider = new firebase.auth.GoogleAuthProvider();
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+// for realtime db
+const db = firebaseApp.firestore();
+// for auth
+const auth = firebaseApp.auth();
+// for storage to save picture
+const storage = firebaseApp.storage();
 
-  export {auth, provider};
-  export default db;
-
+export {db, auth, storage};
   

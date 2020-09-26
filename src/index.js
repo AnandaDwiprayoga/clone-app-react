@@ -3,13 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { FaceboookProvider } from './config/contexApi';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FaceboookProvider >
       <App />
-    </FaceboookProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
