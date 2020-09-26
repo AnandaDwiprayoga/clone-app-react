@@ -1,15 +1,14 @@
-# Facebook Clone using React
+# Instagram Clone using React
 
-- React + React HOOKS
-- React context API -> REDUX Pattern
+- React
 - Material UI
 - Flexbox
 - Firebase's firestore realtime DB
+- Firebase Storage
 - Firebase Hosting
-- Firebase Google Authentication ( FUll Login )
-- React Flip Move (Animation for react)
+- Firebase Email Auth 
 
-### live preview go to https://facebook-clone-6c47b.web.app
+### live preview go to https://instagram-clone-deaf2.web.app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
