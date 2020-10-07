@@ -1,9 +1,9 @@
-import Post from "./post";
-import ImageUpload from "./image-upload";
-
+import Header from "./header";
+import Sidebar from "./sidebar";
+import SidebarOption from "./sidebar-option";
 
 export {
-    Post,
-    ImageUpload
+    Header,
+    Sidebar,
+    SidebarOption
 }
-
